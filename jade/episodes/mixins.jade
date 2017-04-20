@@ -1,0 +1,42 @@
+mixin createEpisode(episode, prepURL, index, season, lastSeason)
+  if index > 0 || season != lastSeason
+  .col-xs-10.col-xs-offset-1.col-sm-6.col-sm-offset-0.col-md-4.margin-bottom-xs
+    a.js-episode.display-block.episode-box.link-transperent(href="./episodes/"+prepURL+".html", style='background-image: linear-gradient(rgba(0, 0, 0, 0.45),rgba(0, 0, 0, 0.45)), url(./assets/img/episodes/'+episode.img+');', data-episodeurl=episode.url, data-episodename=episode.name, data-episodedesc=episode.desc)
+      span.episode-desc.hidden-xs.hidden-sm.text-justify=episode.desc
+      .episode-label
+        .row
+          .col-xs-10
+            h4.margin-top-xxs=episode.name
+          .col-xs-2.text-right.margin-top-xxxs
+            i.icon.icon-m.icon_play-button.color-thirdary
+    p.padding-xxs.hidden-md.hidden-lg.text-justify=episode.desc
+    
+mixin createSeason(array, cityURL)
+  each season, i in array
+    if i==0 
+      .row
+        .col-xs-12.col-xs-offset-0.col-md-8.col-md-offset-2.margin-bottom-xs
+          .lastEpisodeBox.position-relative.display-block.episode-box.episode-box--big.padding-none.link-transperent(href="./season"+season+"/episode"+index style='background-image: linear-gradient(rgba(0, 0, 0, 0.45),rgba(0, 0, 0, 0.45)), url(./assets/img/episodes/'+season[0].img+');')
+            input#js-last-episode-url(type="hidden" data-episodeurl=season[0].url)
+            .videowrapper.opacity-none
+              #player
+              //iframe(src='https://www.youtube.com/embed/'+season[0].url, frameborder='0', allowfullscreen='')
+            .text-center.video-play.margin-top-xl.padding-top-xs
+              i.icon.icon-xxl.icon_play-button.color-thirdary
+            .episode-label
+              .row
+                .col-xs-12
+                  h3#js-last-episode-name.margin-top-xs.margin-bottom-xs=season[0].name
+          p#js-last-episode-desc.lead.padding-top-s.margin-bottom-none.text-justify=season[0].desc
+    .row
+      .col-xs-12
+          h3.margin-bottom-xs Season 
+            span=(array.length-i)
+    .episode-list.row.less-episodes
+      each episode, index in season
+        - var prepURL = cityURL + "_s"+ (array.length-i) + "_e" + (season.length-index)
+        +createEpisode(episode, prepURL, (season.length-index), (array.length-i), array.length)
+        if ((index+1) % 3 == 0 && index>0)
+          .clearfix.hidden-xs.hidden-sm
+        if ((index+1) % 2 == 0 && index>0)
+          .clearfix.hidden-xs.hidden-md.hidden-lg

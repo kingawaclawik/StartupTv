@@ -1,0 +1,10 @@
+extend ./../base/layout
+block logo
+  a.navbar-brand(href='./../index.html')
+    img.logo-top(src='./../assets/img/logo.svg', alt='Startup TV logo', itemprop='logo')
+block navTop
+  +navTop(true)
+block scriptContent
+  +scripts(true)
+block footerBlock
+  +footerLVL(true)

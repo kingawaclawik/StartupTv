@@ -1,0 +1,49 @@
+form.position-relative.js-submit-form(action='php/contact-form.php', method='post', name='contactform', role='form')
+  .alert.alert-danger.special-alert.error.close.alert.alert-warning(style="display:none;")
+  .js-alert-container.text-left
+  .special-overlay.center-container.js-overlay
+    .center-col
+      .row.js-fail.text-center(style="display:none;")
+        h2.special-h1.special-h1-small.padding-bottom-l Sorry something went wrong :(
+        button.btn.btn-lg.btn-danger.btn-gradient.btn-block.btn-symbol.js-overlay-close Try again
+      .row.js-success.text-center.panel.panel-default.color-default(style="display:none;")
+        .col-xs-12.padding-top-m
+          h1.special-h1.special-h1-small.margin-top-none Thank you for your submission
+          p.lead.padding-top-xs
+            | We will let you know about the results till October 15th on
+            b.js-contact-number mail@mail.com
+        .col-xs-10.col-xs-offset-1
+          p.lead.padding-bottom-xs
+            | If you have additional questions feel free to contact us as at 
+            a(href='mailto:info@ad-ventures.pl', itemprop='telephone') info@ad-ventures.pl
+  .js-apply-form
+    .row
+      .col-md-12
+        .form-group
+          input#name.form-control.input-lg.js-name(type='text', placeholder='Name', name="name", require)
+        .form-group
+          input#email.form-control.input-lg.js-email(type='email', placeholder='E-mail', name="email", require)
+        .form-group
+          textarea#desc.form-control.input-lg.js-desc(type='text', placeholder='Short description', name="desc", rows="5")
+        .input-group.text-left
+          label.input-group-btn
+            span.btn.btn-default.btn-file.btn-info.fileinput-button
+              span Upload Pitch
+              input#fileupload(type='file', name='files[]', style="display: none;")
+          .form-control.position-relative
+            #files.files
+            #progress.progress.special-bar
+              .progress-bar.progress-bar-info
+    .row.padding-top-xs
+      .col-md-12
+          p.text-left The most important is your pitchdeck. If you don’t have it write a short description of your project.
+            br 
+            | If your pitchdeck is too large or not supported type apply via email 
+            a(href='mailto:info@ad-ventures.pl', itemprop='telephone') info@ad-ventures.pl
+    .row.padding-top-xs
+      .col-md-12
+        button.btn.btn-lg.btn-primary.btn-gradient.btn-block.btn-symbol.js-submit(type="submit") Apply
+    .row.padding-top-xs
+      .col-md-12
+        small Program's Terms and conditions 
+          a(href='terms.html', rel='nofollow') www.KRKroad.pl/terms.html

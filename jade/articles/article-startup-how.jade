@@ -1,0 +1,7 @@
+extend ./../base/layout
+include base
+block pageContent
+  include layout
+  +pickStartupArticle(1)
+block headContent
+  +preaperArticleHead(1)

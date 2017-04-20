@@ -1,0 +1,47 @@
+extend partners
+block partnersContent
+  block articleVars
+    - testblock0 ="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut semper pellentesque bibendum. Etiam ultricies lorem sed leo interdum pharetra. Donec eleifend dictum massa, in bibendum quam blandit at. Etiam scelerisque euismod mauris, quis egestas nisi sodales eget. Proin tempus, erat porta euismod viverra, odio dui faucibus magna, et pretium orci lacus a metus. Sed placerat dolor ut leo tristique pulvinar. Suspendisse eget placerat ante, eu placerat odio. Cras ut mattis neque."
+    - testblock1 ="Sed dignissim laoreet nisi at ornare. Ut in diam lacus. Suspendisse ullamcorper, quam vitae sollicitudin gravida, lacus nulla interdum orci, eget ultricies mi mi eget ante. Fusce sodales turpis accumsan velit elementum venenatis. Vestibulum a ante porta, tempus magna in, viverra ante. Suspendisse molestie felis ac dictum convallis. Vivamus a pretium felis. Donec tempor tempor ornare."
+    - testblock2 ="Ut mattis odio vitae odio dictum porttitor. Curabitur dignissim tortor sit amet posuere imperdiet. Nulla viverra eros tortor, sit amet tristique orci ullamcorper id. Sed quis nulla tempus, porttitor tellus vitae, feugiat turpis. Donec egestas libero purus, sed vestibulum magna tempus et. Suspendisse eget augue aliquam, convallis felis sed, vulputate orci. Cras mattis rhoncus nunc imperdiet pellentesque. Proin sed dictum elit, non ultricies turpis."
+    - testblock3 ="Nullam eu condimentum odio. Fusce porttitor ullamcorper leo suscipit rhoncus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec finibus mauris eu lorem euismod maximus. Morbi imperdiet tristique purus, sed vestibulum ante vestibulum pellentesque. Praesent tempor faucibus purus, eget pharetra nisl scelerisque ut. Donec sollicitudin id dui in ornare. Phasellus in justo orci. Nulla lacus leo, auctor vel nibh at, efficitur rhoncus velit. Sed placerat eget risus in dapibus. Vestibulum imperdiet vestibulum sapien."
+    - testblock4 ="Sed varius arcu lobortis sapien auctor, vel consectetur ligula sagittis. Morbi vehicula tellus viverra mauris feugiat pulvinar. Morbi laoreet, mi eu dignissim tempor, felis nisi convallis lectus, porttitor tempus nisl ante a sapien. Vivamus nec varius tellus. Quisque fringilla purus id orci vulputate suscipit. In hac habitasse platea dictumst. Etiam sollicitudin urna eget nulla vehicula, sed hendrerit nisi congue."
+    - testArray = [testblock0, testblock1, testblock2, testblock3, testblock4]
+  
+    - why = {}
+    - why.title = "What I will get from being featured in the Stratup TV?"
+    - why.url = "article-startup-why.html"
+    - why.CSSclass = "bg-bridge"
+    - why.content = testArray
+    
+    - how = {}
+    - how.title = "I have a startup. How I can get to the epsisode?"
+    - how.url = "article-startup-how.html"
+    - how.CSSclass = "bg-coffee"
+    - how.content = testArray
+    
+    - whysponsor = {}
+    - whysponsor.title = "What I will get from sponsoring an epsiode?"
+    - whysponsor.url = "article-partner-why.html"
+    - whysponsor.CSSclass = "bg-gifts"
+    - whysponsor.content = testArray
+    
+    - howsponsor = {}
+    - howsponsor.title = "I want to sponsor an episode. How I can get do?"
+    - howsponsor.url = "article-partner-how.html"
+    - howsponsor.CSSclass = "bg-writing"
+    - howsponsor.content = testArray
+    
+    - Test = {}
+    - Test.title = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+    - Test.url = ""
+    - Test.CSSclass = "bg-notepad"
+    - Test.content = testArray
+
+    - startupsArticleArray = [why, how, Test, Test]
+    - partnerArticleArray = [whysponsor, howsponsor, Test, Test]
+
+  block includeArticleLayout
+    include ./../articles/mixin.jade
+  block articleContent
+    div Test article Content

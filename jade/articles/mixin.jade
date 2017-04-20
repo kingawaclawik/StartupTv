@@ -1,0 +1,14 @@
+mixin createArticle(article)
+  header.text-center(class=article.CSSclass)
+    .margin-top-l
+    .container
+      .row
+        .col-xs-12
+          .jumbotron
+            h1.padding-top-s.padding-bottom-s=article.title
+  section.padding-top-m.padding-bottom-m
+    .container
+      .row
+        .col-xs-12.col-sm-10.col-sm-offset-1.text-justify
+            each paragraph, index in article.content
+              p.lead=paragraph

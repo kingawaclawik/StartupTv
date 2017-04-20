@@ -1,0 +1,52 @@
+extend ../data/articles
+block articleContent
+  mixin footerLVL(secondLvl)
+    -var pageSrc = ''
+    if(secondLvl)
+      - var pageSrc = './../'
+    .container
+      .row
+        .col-xs-12.col-sm-6.col-md-4
+          row 
+            h4 For Startups
+            ul.list-unstyled
+              each article, i in startupsArticleArray
+                +createLink(article, pageSrc)
+        .col-xs-12.col-sm-6.col-md-4.text-center
+          row 
+            h4 Contact us
+            p.lead.margin-bottom-xxxs
+              b.padding-right-xxs Call Paul:
+              a(href='tel:+48796941280', target='_top') +48 796 941 280
+            p.lead.display-block.margin-bottom-s 
+              b.padding-right-xxs Email us:
+              a(href='mailto:info@startuptv.pl?Subject=Hello', target='_top') info@startuptv.pl
+            a.link-transperent.margin-right-xxs(href="https://www.facebook.com/krakowstartuptv", target="_blank") 
+              img(src=pageSrc+"assets/img/facebook.svg", alt="Facebook logo", width="50px")
+            a.link-transperent(href="https://www.youtube.com/user/krakowstartuptv", target="_blank") 
+              img(src=pageSrc+"assets/img/youtube.svg", alt="Youtube logo", width="50px")
+        row
+        .col-xs-12.col-sm-6.col-md-4
+          row 
+            h4 For Sponsors
+            ul.list-unstyled
+              each article, i in partnerArticleArray
+                +createLink(article, pageSrc)
+        .col-xs-12.col-sm-12.col-md-12
+          row 
+            h5 Powered by:
+        .col-xs-12.col-sm-12.col-md-10.col-md-offset-1.center-container
+          ul.row.center-container.padding-left-none.text-center
+            each partner, i in PartnersArray
+              +partnerLogo(partner, pageSrc)    
+  mixin createLink(article, pageSrc)
+    li
+      a(href=pageSrc+"articles/"+article.url)=article.title
+
+  mixin partnerLogo(partner, pageSrc, index)
+    li.col-xs-4.col-sm-2.col-md-2.center-col.padding-top-xxs.padding-bottom-xxs
+      img.img-responsive(src=pageSrc+"assets/img/"+partner.logo+".png", alt=partner.name+" logo")
+      
+  footer.padding-top-s.padding-bottom-s#footer
+    block footerBlock
+      +footerLVL(false)

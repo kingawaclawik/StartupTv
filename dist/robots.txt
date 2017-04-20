@@ -1,0 +1,3 @@
+User-agent: all
+Disallow: /regulamin.html
+Sitemap: https://startuptv.pl/sitemap.xml

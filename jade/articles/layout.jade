@@ -1,0 +1,11 @@
+extend ./../data/articles
+block articleContent
+
+  mixin pickPartnerArticle(number)
+    +createArticle(partnerArticleArray[number])
+    
+  mixin pickStartupArticle(number)
+    +createArticle(startupsArticleArray[number])
+    
+  mixin preaperArticleHead(number)
+    +head("Startup TV", "", true)

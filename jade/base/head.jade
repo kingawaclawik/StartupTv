@@ -1,0 +1,21 @@
+mixin head(title, desc, secondLvl)
+  head
+    block metaTags
+      meta(charset='utf-8')
+      meta(http-equiv='X-UA-Compatible', content='IE=edge')
+      meta(name='viewport', content='width=device-width, initial-scale=1')
+      title=title
+      meta(name='description', content=desc)
+      meta(name='author', content='Ad-Ventures by Kinga Waclawik')
+      meta(http-equiv="Cache-control",content="public")
+      include ./fav.jade
+      +fav(secondLvl)
+      include ./social-media.jade
+      // Bootstrap core CSS
+      if (secondLvl)
+        //link(href='./../css/bootstrap.min.css?07112016', rel='stylesheet')
+        link(href='./../css/bootstrap.css?07112016', rel='stylesheet')
+      else
+        //link(href='css/bootstrap.min.css?07112016', rel='stylesheet')
+        link(href='css/bootstrap.css?07112016', rel='stylesheet')
+      link(href='https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700', rel='stylesheet')

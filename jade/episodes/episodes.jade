@@ -1,0 +1,27 @@
+extends ./../data/episodes
+block pageContent
+  include mixins
+  section#episodes.bg-secondary.color-white
+    .container.text-center
+      .row.text-center
+        a.js-city.col-xs-6.padding-bottom-xxs.link-transparent.color-white.cursor-pointer.arrow.arrow-xs.arrow-bottom.arrow-bottom-xs.arrow-bottom-color-secondary(data-city="krakow")
+          h3=krakow.city
+        a.js-city.col-xs-6.padding-bottom-xxs.link-transparent.color-white.cursor-pointer.arrow-xs.arrow-bottom.arrow-bottom-xs.arrow-bottom-color-secondary(data-city="warszawa")
+          h3=warszawa.city
+        //a.js-city.col-xs-4.padding-bottom-xxs.link-transparent.color-white.cursor-pointer.arrow-xs.arrow-bottom.arrow-bottom-xs.arrow-bottom-color-secondary
+          h3 London
+  .container.margin-top-s
+    #warszawa.js-seasons.display-none-int
+      //+createSeason(warszawa.array, warszawa.cityURL)
+    #krakow.js-seasons
+      +createSeason(krakow.array, krakow.cityURL)
+    //#london.display-none-int
+      +season(london.array)
+  a#more-episodes.text-center.link-simple.cursor-pointer
+    .display-block.margin-top-s
+      p.lead.text-uppercase.margin-bottom-xxs More episodes
+      i.icon.icon-m.icon_down-arrow.color-thirdary.margin-bottom-xxs
+  a#less-episodes.display-none-int.text-center.margin-top-s.link-simple.cursor-pointer
+    .display-block.margin-top-s
+      i.icon.icon-m.icon_up-arrow.color-thirdary.margin-bottom-xxs
+      p.lead.text-uppercase.margin-bottom-xxs Less

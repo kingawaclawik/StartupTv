@@ -1,0 +1,24 @@
+mixin navTop(secondLvl)
+  -var pageSrc = ''
+  if(secondLvl)
+    - var pageSrc = './../'
+  ul.nav.navbar-nav.navbar-right
+    li: a(href=pageSrc+"index.html") Episodes
+    li: a(href=pageSrc+"about.html") About us
+    li: a(href=pageSrc+"partners.html") Partners
+    li.text-right
+      a.button.display-inline-block(href="https://www.facebook.com/krakowstartuptv", target="_blank") Follow us
+nav.navbar.navbar-default.navbar-fixed-top(data-spy="affix" data-offset-top="230")
+  .container
+    .navbar-header
+      button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      block logo
+        a.navbar-brand(href='index.html')
+          img.logo-top(src='assets/img/logo.svg', alt='Startup tv logo', itemprop='logo')
+    #navbar.navbar-collapse.collapse
+      block navTop
+        +navTop(false)

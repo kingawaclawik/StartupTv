@@ -1,0 +1,19 @@
+mixin reasone(title, desc, icon)
+  .col-xs-10.col-xs-offset-1.col-sm-4.col-sm-offset-0.col-lg-4.padding-bottom-xs
+    i.icon.icon-l(class=icon)
+    h4.text-uppercase !{title}
+    p !{desc}
+
+section#why.padding-top-m.padding-bottom-m
+  .container
+    .row
+      .col-xs-12.col-sm-10.col-sm-offset-1
+        h1.special-h1.padding-bottom-s.text-center Benefits
+    .row.text-center
+      +reasone("Lorem", "Nunc vitae nisi sit amet mi molestie ornare. Maecenas molestie tempor ipsum at vulputate.","icon_followers")
+      +reasone("Ipsum", "Pellentesque lobortis at mauris non condimentum. Aliquam pulvinar massa pellentesque tellus tempor vehicula.", "icon_rocket-launch")
+      +reasone("Dolor", "Curabitur at neque lacus. Etiam egestas suscipit leo, sed imperdiet lorem elementum non.", "icon_video-love")
+      .clearfix
+      +reasone("Sit amet", "Nullam vel urna in lorem accumsan vestibulum. Vestibulum nec tortor quis quam venenatis consequat at sed mi.", "icon_trophy")
+      +reasone("Consectetur", " Aliquam tincidunt neque tellus, sed porttitor dolor pulvinar quis. Suspendisse sit amet tortor feugiat, laoreet nisi vel, mattis ante.", "icon_presentation")
+      +reasone("Adipiscing", "Vivamus quis sollicitudin purus. Sed egestas turpis id leo sollicitudin euismod.", "icon_avatar")

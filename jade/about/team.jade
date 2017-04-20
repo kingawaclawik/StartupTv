@@ -1,0 +1,45 @@
+extends ./../data/team-members
+
+block pageContent
+  mixin mentor(person)
+    .col-xs-12.col-md-4.padding-bottom-xs
+      .center-container
+        a(href=person.lnUrl, target="_blank")
+          img.img-circle.center-col(src="assets/img/team-members/"+person.photo+".jpg", height="80px" , width="80px", alt=person.name+" photo")
+        .center-col.padding-left-xs
+          a.h4(href=person.lnUrl, target="_blank")=person.name
+          br
+          a.font-italic(href=person.companyUrl, target="_blank")=person.company
+          p.text-uppercase !{person.position}
+      .padding-top-xxs
+        p.max-height.margin-bottom-none !{person.bioShort}
+        a.text-center(data-toggle='modal', data-target='#'+person.photo) read more
+      .modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true', id=person.photo)
+        .modal-dialog(role='document')
+          .modal-content
+            .modal-header.center-container
+              button.close(type='button', data-dismiss='modal', aria-label='Close')
+                span(aria-hidden='true') ×
+              .center-col
+                a(href=person.lnUrl, target="_blank")
+                  img.img-circle.center-col(src="assets/img/team-members/"+person.photo+".jpg", height="80px" , width="80px", alt=person.name+" photo")
+              .center-col.padding-left-xs
+                a.h2(href=person.lnUrl, target="_blank")=person.name
+                br
+                a.font-italic(href=person.companyUrl, target="_blank")=person.company
+                p.text-uppercase !{person.position}
+            .modal-body !{person.bio}
+  section#mentors.padding-top-l.padding-bottom-l
+    .container
+      .row
+        .col-xs-8.col-xs-offset-2
+          h1.special-h1.padding-bottom-s.text-center Team members
+      .row
+        +mentor(Paul)
+        +mentor(Krzysztof)
+        +mentor(Test)
+        .clearfix.hidden-xs.hidden-sm
+      .row
+        .col-xs-8.col-xs-offset-2.text-center
+          p.small Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+

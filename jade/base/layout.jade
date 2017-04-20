@@ -1,0 +1,15 @@
+extend  ./../data/head
+block htmlContent 
+  doctype html
+  html(lang='en')
+    block headContent
+      include ./head
+      +head(mainPage.title, mainPage.desc, false)
+    body(data-spy="scroll", data-target="nav-main", itemscope, itemtype="http://schema.org/Event")
+      include ./nav
+      block pageContent
+        div Default page content
+      include ./footer
+    include ./scripts
+    block scriptContent
+      +scripts(false)

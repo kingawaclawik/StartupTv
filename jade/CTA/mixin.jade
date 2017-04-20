@@ -1,0 +1,25 @@
+mixin CTA(cta)
+  section.cta.padding-top-l.text-center(id=cta.sectionId)
+    .container
+      if (cta.avatar)
+        img.img-circle.hidden-xs.margin-top-minus-xxl(src=cta.avatar.src, alt=cta.avatar.alt, style='width: 170px; height: 170px;')
+      .row
+        .col-xs-10.col-xs-offset-1
+          h1 !{cta.title}
+        .col-xs-12.col-xs-offset-0.col-sm-10.col-sm-offset-1
+          if (cta.paragraph)
+            p.lead !{cta.paragraph}
+        if (cta.chat || cta.share || cta.team || cta.partner)
+          .col-xs-12.col-sm-8.col-sm-offset-2.col-md-4.col-md-offset-4.padding-top-s.padding-bottom-m
+            if cta.chat
+              a.btn.btn-lg.btn-primary.btn-gradient.btn-block(data-api="smartsupp", data-operation="open") Czat
+            if cta.share
+              .fb-share-button(data-href='https://www.facebook.com/events/1835099126710128/', data-layout='button', data-size='large', data-mobile-iframe='true')
+                a.fb-xfbml-parse-ignore.btn.btn-lg.btn-info.btn-gradient.btn-block(target='_blank', href='https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2Fevents%2F1835099126710128%2F&src=sdkpreparse') Share
+            if cta.team
+              a.btn.btn-lg.btn-primary.btn-gradient.btn-block.btn-allert(href="", target="_blank", role='button') Join the Team
+            if cta.partner
+              a.btn.btn-lg.btn-primary.btn-gradient.btn-block.btn-info(href="" target="_top") Become a Partner
+        else
+          .col-xs-10.col-xs-offset-1.col-sm-8.col-sm-offset-2.col-md-4.col-md-offset-4.padding-top-s.padding-bottom-m
+            a.btn.btn-lg.btn-primary.btn-gradient.btn-block(href='#apply', role='button') Contact us!
